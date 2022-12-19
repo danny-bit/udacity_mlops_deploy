@@ -1,5 +1,5 @@
 # Model Card
-- Model predicts if the income exceeds $50k/yr based on that census information.
+- Model predicts if the income exceeds $50k/yr based on census information.
 - Developed as a demo project for udacity MLDevOps degree
 
 ## Model Details
@@ -16,6 +16,7 @@ Model inputs:
 - age
 - education_num
 - hours_per_week
+
 Model outpus:
 - 0/1 (0 is below $50k)
 
