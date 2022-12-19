@@ -5,6 +5,7 @@ from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 
+
 def get_inference_pipeline(features,
                            hyperparameters=None):
 

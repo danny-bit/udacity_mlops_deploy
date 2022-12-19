@@ -1,7 +1,7 @@
 import sys
 import logging
 
-from pipeline.helpers.model import  compute_model_metrics
+from pipeline.helpers.model import compute_model_metrics
 from pipeline.helpers.model import split_features_response
 
 logging.basicConfig(stream=sys.stdout,

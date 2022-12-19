@@ -109,7 +109,7 @@ def run_sanity_check(test_dir):
             print(FAIL_COLOR+f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(FAIL_COLOR+"You do not seem to have TWO separate test cases, "
-                              "one for each possible prediction that your model can make.")
+                  "one for each possible prediction that your model can make.")
 
     SANITY_TEST_PASSING = SANITY_TEST_PASSING and\
         TEST_FOR_GET_METHOD_RESPONSE_CODE and \

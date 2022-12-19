@@ -13,7 +13,7 @@ body_data = {
     "hours_per_week": 60
 }
 
-r = requests.post('https://udacity-ml-devops-ged.herokuapp.com/census_model/', 
+r = requests.post('https://udacity-ml-devops-ged.herokuapp.com/census_model/',
                   json=body_data)
 
 print("response code: %s" % r.status_code)
