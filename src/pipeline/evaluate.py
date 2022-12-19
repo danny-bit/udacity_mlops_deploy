@@ -1,11 +1,7 @@
 import sys
 import logging
 
-import pandas as pd
-import numpy as np
-
-from sklearn.model_selection import train_test_split
-from pipeline.helpers.model import get_inference_pipeline, compute_model_metrics
+from pipeline.helpers.model import  compute_model_metrics
 from pipeline.helpers.model import split_features_response
 
 logging.basicConfig(stream=sys.stdout,

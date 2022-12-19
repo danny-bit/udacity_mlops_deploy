@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from sklearn.pipeline import Pipeline
 from src.pipeline.helpers.model import compute_model_metrics, get_inference_pipeline
 

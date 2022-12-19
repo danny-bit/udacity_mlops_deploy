@@ -12,7 +12,7 @@ def go(input_artifact):
     logging.info("::cleaning data...")
     # read with whitespaces around delimiter
     df_data = pd.read_csv(input_artifact,
-                          sep='\s*,\s+',
+                          sep=r'\s*,\s+',
                           engine='python')
 
     logging.info("::number of samples: %d" % (len(df_data)))

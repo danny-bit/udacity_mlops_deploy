@@ -2,7 +2,6 @@
     execute the model pipeline
 """
 
-import sys
 import logging
 import joblib
 import pipeline.basic_cleaning

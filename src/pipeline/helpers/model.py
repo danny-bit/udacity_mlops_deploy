@@ -1,15 +1,9 @@
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OrdinalEncoder, StandardScaler, LabelBinarizer
+from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 from sklearn.pipeline import Pipeline, make_pipeline
 
-import scipy.stats as stats
-from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-
-import numpy as np
-
 
 def get_inference_pipeline(features,
                            hyperparameters=None):
