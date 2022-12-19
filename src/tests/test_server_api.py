@@ -1,13 +1,15 @@
-from fastapi.testclient import TestClient 
+from fastapi.testclient import TestClient
 import json
 from src.server_api import app
 
-client=TestClient(app)
+client = TestClient(app)
+
 
 def test_welcomepost():
     r = client.get("/")
     assert r.status_code == 200
-    assert 'Yo' in r.json()["message"] 
+    assert 'Yo' in r.json()["message"]
+
 
 def test_model_query_low_salary():
     """
@@ -28,6 +30,7 @@ def test_model_query_low_salary():
     assert r.status_code == 200
     assert r.json() == 0
 
+
 def test_model_query_high_salary():
     """
     test for census model API - test prediction=1
@@ -47,9 +50,10 @@ def test_model_query_high_salary():
     assert r.status_code == 200
     assert r.json() == 1
 
+
 def test_model_query_invalid_value():
     r = client.post("/census_model/?", json={
-        "workclass": "Hero", # erroneus value
+        "workclass": "Hero",  # erroneus value
         "marital_status": "Never-married",
         "occupation": "Exec-managerial",
         "relationship": "Unmarried",

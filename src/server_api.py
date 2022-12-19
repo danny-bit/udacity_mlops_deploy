@@ -5,22 +5,25 @@ import pandas as pd
 import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Literal # Literal=Symbol?
+from typing import Literal  # Literal=Symbol?
 
 app = FastAPI()
 
+
 class CensusModelInputs(BaseModel):
-    workclass:Literal['Local-gov', 'Private', 'Self-emp-inc', 'Self-emp-not-inc', 'Federal-gov',
-                      'State-gov', 'Without-pay']
-    marital_status:Literal['Married-civ-spouse','Never-married','Married-spouse-absent','Widowed',
-                           'Divorced','Separated','Married-AF-spouse']
-    occupation:Literal['Protective-serv', 'Machine-op-inspct', 'Other-service', 'Prof-specialty',
-                       'Adm-clerical', 'Craft-repair', 'Sales', 'Exec-managerial',
-                       'Transport-moving', 'Tech-support', 'Farming-fishing', 'Handlers-cleaners',
-                       'Priv-house-serv', 'Armed-Forces']
-    relationship:Literal['Husband', 'Unmarried', 'Own-child', 'Not-in-family', 'Other-relative', 'Wife']
-    race:Literal['White', 'Asian-Pac-Islander', 'Other', 'Black', 'Amer-Indian-Eskimo']
-    sex:Literal['Male', 'Female']
+    workclass: Literal['Local-gov', 'Private', 'Self-emp-inc', 'Self-emp-not-inc', 'Federal-gov',
+                       'State-gov', 'Without-pay']
+    marital_status: Literal['Married-civ-spouse', 'Never-married', 'Married-spouse-absent', 'Widowed',
+                            'Divorced', 'Separated', 'Married-AF-spouse']
+    occupation: Literal['Protective-serv', 'Machine-op-inspct', 'Other-service', 'Prof-specialty',
+                        'Adm-clerical', 'Craft-repair', 'Sales', 'Exec-managerial',
+                        'Transport-moving', 'Tech-support', 'Farming-fishing', 'Handlers-cleaners',
+                        'Priv-house-serv', 'Armed-Forces']
+    relationship: Literal['Husband', 'Unmarried',
+                          'Own-child', 'Not-in-family', 'Other-relative', 'Wife']
+    race: Literal['White', 'Asian-Pac-Islander',
+                  'Other', 'Black', 'Amer-Indian-Eskimo']
+    sex: Literal['Male', 'Female']
     native_country: Literal['United-States', 'Thailand', 'Canada', 'Cuba', 'Nicaragua', 'Mexico', '?',
                             'Peru' 'China', 'Iran', 'Greece', 'Ireland', 'Philippines', 'England',
                             'Outlying-US(Guam-USVI-etc)', 'Jamaica', 'Columbia', 'South', 'Italy',
@@ -34,9 +37,11 @@ class CensusModelInputs(BaseModel):
 
 # /...../....?var1=1&var2=2
 # /{path}/...?{query}
+
+
 @app.get("/")
 async def welcome():
-    return {"message": "Yo, nice to see ya!"} # dict is mapped to json format?
+    return {"message": "Yo, nice to see ya!"}  # dict is mapped to json format?
 
 
 # Use POST action to send data to the server

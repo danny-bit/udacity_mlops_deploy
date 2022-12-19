@@ -10,7 +10,8 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 
 import numpy as np
 
-def get_inference_pipeline(features, 
+
+def get_inference_pipeline(features,
                            hyperparameters=None):
 
     model = RandomForestClassifier()
@@ -55,9 +56,10 @@ def compute_model_metrics(y, preds):
 
     return precision, recall, fbeta
 
+
 def split_features_response(df_data, response_column):
     df_y = df_data[response_column]
     feature_columns = [col_name for col_name in df_data.columns
-                                if not col_name == response_column]
+                       if not col_name == response_column]
     df_X = df_data.loc[:, feature_columns]
     return (df_X, df_y)

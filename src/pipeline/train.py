@@ -7,8 +7,9 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from pipeline.helpers.model import get_inference_pipeline, compute_model_metrics, split_features_response
 
-logging.basicConfig(stream=sys.stdout, 
+logging.basicConfig(stream=sys.stdout,
                     level=logging.INFO)
+
 
 def go(input_artifact, params):
     logging.info("::model training...")
@@ -27,8 +28,8 @@ def go(input_artifact, params):
     num_features = [
         'age',
         'education_num',
-        #'capital_gain',
-        #'capital_loss',
+        # 'capital_gain',
+        # 'capital_loss',
         'hours_per_week'
     ]
 
@@ -36,8 +37,8 @@ def go(input_artifact, params):
     features['categorical'] = cat_features
     features['numerical'] = num_features
 
-    #print(df_trainval.describe())
-    #for feature in features['categorical']:
+    # print(df_trainval.describe())
+    # for feature in features['categorical']:
     #    print(feature)
     #    print(df_trainval[feature].unique())
 

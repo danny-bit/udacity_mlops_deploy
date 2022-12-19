@@ -1,18 +1,20 @@
 import numpy as np
 import pandas as pd
 from sklearn.pipeline import Pipeline
-from src.pipeline.helpers.model import compute_model_metrics, get_inference_pipeline 
+from src.pipeline.helpers.model import compute_model_metrics, get_inference_pipeline
+
 
 def test_compute_model_metric():
     """
     test the compute_model_metric pipeline function of src.pipeline.helpers
     """
     n_samples = 3
-    precision, recall, fbeta = compute_model_metrics(y = np.ones(n_samples,), 
-                                                     preds = np.ones(n_samples,))
+    precision, recall, fbeta = compute_model_metrics(y=np.ones(n_samples,),
+                                                     preds=np.ones(n_samples,))
     assert (precision == 1)
     assert (recall == 1)
     assert (fbeta == 1)
+
 
 def test_get_inference_pipeline():
     """
@@ -38,7 +40,7 @@ def test_get_inference_pipeline():
 #     df_art['feature'] = np.ones(n_data,)
 #     df_art['response'] = np.ones(n_data,)
 
-#     df_X, df_y = pop_response(df_data = df_art, 
+#     df_X, df_y = pop_response(df_data = df_art,
 #                               response_column='response')
 
 #     assert (df_X.columns == 'feature')
