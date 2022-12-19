@@ -35,6 +35,22 @@ class CensusModelInputs(BaseModel):
     education_num: int
     hours_per_week: int
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "workclass": "Private",
+                "marital_status": "Married-civ-spouse",
+                "occupation": "Exec-managerial",
+                "relationship": "Unmarried",
+                "race": "White",
+                "sex": "Male",
+                "native_country": "United-States",
+                "age": 32,
+                "education_num": 13,
+                "hours_per_week": 60
+            }
+        }
+
 # /...../....?var1=1&var2=2
 # /{path}/...?{query}
 

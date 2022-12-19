@@ -53,6 +53,16 @@ def compute_model_metrics(y, preds):
 
 
 def split_features_response(df_data, response_column):
+    """split a dataframe into a features dataframe and the response column
+
+    Args:
+        df_data (pandas DataFrame): input dataframe
+        response_column (str): name of the response column
+
+    Returns:
+        df_X: dataframe of the features
+        df_y: dataframe of the response column
+    """
     df_y = df_data[response_column]
     feature_columns = [col_name for col_name in df_data.columns
                        if not col_name == response_column]
