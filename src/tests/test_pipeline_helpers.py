@@ -37,5 +37,5 @@ def test_split_features_response():
                              columns=list('ABCD'))
     df_X, df_y = split_features_response(df_random, 'D')
 
-    assert not 'D' in df_X.columns
+    assert 'D' not in df_X.columns
     assert (df_y.values == df_random['D']).all()
