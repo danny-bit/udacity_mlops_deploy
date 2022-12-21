@@ -1,6 +1,8 @@
 import numpy as np
+import pandas as pd
 from sklearn.pipeline import Pipeline
 from src.pipeline.helpers.model import compute_model_metrics, get_inference_pipeline
+from src.pipeline.helpers.model import split_features_response
 
 
 def test_compute_model_metric():
@@ -29,18 +31,11 @@ def test_get_inference_pipeline():
     assert 'cat_test' in pipeline.named_steps['preprocessor'].__repr__()
     assert 'num_test' in pipeline.named_steps['preprocessor'].__repr__()
 
-# #def test_pop_response():
-#     """
-#     test the pop_response_function of src.pipeline.helpers
-#     """
 
-#     n_data = 3
-#     df_art = pd.DataFrame()
-#     df_art['feature'] = np.ones(n_data,)
-#     df_art['response'] = np.ones(n_data,)
+def test_split_features_response():
+    df_random = pd.DataFrame(np.random.randint(0, 100, size=(100, 4)),
+                             columns=list('ABCD'))
+    df_X, df_y = split_features_response(df_random, 'D')
 
-#     df_X, df_y = pop_response(df_data = df_art,
-#                               response_column='response')
-
-#     assert (df_X.columns == 'feature')
-#     assert (df_y.name == 'response')
+    assert not 'D' in df_X.columns
+    assert (df_y.values == df_random['D']).all()
