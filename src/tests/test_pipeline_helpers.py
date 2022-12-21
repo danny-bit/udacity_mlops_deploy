@@ -12,6 +12,9 @@ def test_compute_model_metric():
     n_samples = 3
     precision, recall, fbeta = compute_model_metrics(y=np.ones(n_samples,),
                                                      preds=np.ones(n_samples,))
+    assert isinstance(precision, float)
+    assert isinstance(recall, float)
+    assert isinstance(fbeta, float)
     assert (precision == 1)
     assert (recall == 1)
     assert (fbeta == 1)
@@ -27,7 +30,7 @@ def test_get_inference_pipeline():
     features['numerical'] = 'num_test'
     pipeline = get_inference_pipeline(features)
 
-    assert (isinstance(pipeline, Pipeline))
+    assert isinstance(pipeline, Pipeline)
     assert 'cat_test' in pipeline.named_steps['preprocessor'].__repr__()
     assert 'num_test' in pipeline.named_steps['preprocessor'].__repr__()
 
@@ -37,5 +40,7 @@ def test_split_features_response():
                              columns=list('ABCD'))
     df_X, df_y = split_features_response(df_random, 'D')
 
+    assert isinstance(df_X, pd.DataFrame)
+    assert isinstance(df_y, pd.Series)
     assert 'D' not in df_X.columns
     assert (df_y.values == df_random['D']).all()
